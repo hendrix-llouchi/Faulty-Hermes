@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Input.css';
 
-const imgEye = "http://localhost:3845/assets/d51595ef95c3738f1b7805c81bcf8166e6edace7.svg";
+import imgEye from '../assets/visibility-eye-Icon.svg';
 
 /**
  * Reusable Input component based on Figma designs.
