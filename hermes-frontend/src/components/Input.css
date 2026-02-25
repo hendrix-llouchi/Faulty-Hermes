@@ -1,0 +1,133 @@
+.input-field-container {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px 14px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.input-field-container:focus-within {
+    border-color: #ea6506;
+    box-shadow: 0 0 0 1px #ea6506;
+}
+
+.input-field-icon-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-field-icon {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    opacity: 0.55;
+}
+
+.input-field-input-wrapper {
+    flex: 1 0 0;
+    min-height: 1px;
+    min-width: 1px;
+    position: relative;
+}
+
+.input-field-element {
+    background: transparent;
+    border: none;
+    color: #1e293b;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    padding: 0;
+    width: 100%;
+}
+
+.input-field-element::placeholder {
+    color: #cbd5e1;
+}
+
+.input-field-eye-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.input-field-eye-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.25;
+}
+
+/* SignUp Variant: Matches exact Figma specs for Email/Input containers */
+.variant-signup {
+    display: flex !important;
+    flex-direction: row !important;
+    /* Changed to row to keep icons and text on same line */
+    align-items: center !important;
+    align-self: stretch !important;
+    padding: 11px 12px 12px 40px !important;
+    border-radius: 8px !important;
+    border: 1px solid #D1D5DB !important;
+    background-color: #F9FAFB !important;
+    box-shadow: none !important;
+    position: relative !important;
+    min-height: 42px;
+    /* Standard height from Figma */
+}
+
+.variant-signup .input-field-icon-wrapper {
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 16px !important;
+    height: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.variant-signup .input-field-eye-wrapper {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.variant-signup .input-field-input-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.variant-signup .input-field-element {
+    font-size: 14px !important;
+    color: #1e293b !important;
+    padding: 0 !important;
+    height: 20px !important;
+}
+
+.variant-signup .input-field-element::placeholder {
+    color: #9CA3AF !important;
+}
