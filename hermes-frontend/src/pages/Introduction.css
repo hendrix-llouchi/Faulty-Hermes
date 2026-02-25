@@ -1,0 +1,376 @@
+.intro-container {
+    background-color: #f8f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 16px;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.intro-main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    width: 100%;
+    max-width: 1152px;
+}
+
+.intro-header {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.intro-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+
+.intro-form {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-template-rows: auto auto;
+    gap: 24px;
+    width: 100%;
+}
+
+/* Profile Photo Card */
+.profile-photo-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 32px;
+    box-shadow: 0px 4px 20px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    width: 160px;
+    height: 90px;
+    margin-bottom: 24px;
+}
+
+.profile-avatar-upload {
+    background-color: #f9fafb;
+    border: 2px dashed #d1d5db;
+    border-radius: 9999px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.camera-icon {
+    width: 34px;
+    height: 31px;
+}
+
+.profile-edit-btn {
+    position: absolute;
+    bottom: -8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: #da620b;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.edit-icon {
+    width: 10px;
+    height: 10px;
+}
+
+.profile-photo-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+}
+
+.profile-photo-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 20px;
+    margin: 0;
+}
+
+.upload-link {
+    color: #da620b;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Bio Card */
+.bio-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 32px;
+    box-shadow: 0px 4px 20px -2px rgba(0, 0, 0, 0.05);
+    padding: 33px;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+
+.bio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.bio-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bio-icon {
+    width: 15px;
+    height: 12px;
+}
+
+.bio-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.badge-public {
+    background-color: rgba(218, 98, 11, 0.1);
+    color: #da620b;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.bio-textarea-wrapper {
+    position: relative;
+    /* Let the textarea define height via rows or flex */
+    height: 180px;
+}
+
+.bio-textarea {
+    width: 100%;
+    height: 100%;
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 24px;
+    padding: 17px;
+    font-family: inherit;
+    font-size: 18px;
+    color: #1f2937;
+    resize: none;
+    box-sizing: border-box;
+    box-shadow: inset 0px 2px 4px 1px rgba(0, 0, 0, 0.05);
+}
+
+.bio-textarea::placeholder {
+    color: #9ca3af;
+}
+
+.bio-textarea:focus {
+    outline: none;
+    border-color: #da620b;
+}
+
+.bio-char-count {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background-color: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 6px;
+    padding: 5px 9px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #9ca3af;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* Interests Card */
+.interests-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 32px;
+    padding: 33px;
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+}
+
+.interests-header {
+    margin-bottom: 24px;
+}
+
+.interests-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+}
+
+.interests-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.interests-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.interest-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 21px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.interest-btn:hover {
+    background-color: #f9fafb;
+}
+
+.interest-btn.selected {
+    background-color: #da620b;
+    border-color: #da620b;
+    color: #ffffff;
+}
+
+/* Filter icon colors for unselected */
+.interest-btn:not(.selected) .interest-icon {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(8%) saturate(735%) hue-rotate(182deg) brightness(97%) contrast(85%);
+    /* This makes it a dark grey */
+}
+
+/* Filter icon colors for selected */
+.interest-btn.selected .interest-icon {
+    filter: brightness(0) invert(1);
+    /* Makes it white */
+}
+
+.interest-icon {
+    max-height: 16px;
+    max-width: 16px;
+}
+
+.add-more-btn {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.add-more-btn .plus-icon {
+    font-size: 16px;
+}
+
+/* Actions Section */
+.intro-actions {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+}
+
+.intro-actions button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 56px;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-back {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #000000;
+}
+
+.btn-back:hover {
+    background-color: #f9fafb;
+}
+
+.btn-next {
+    background-color: #da620b;
+    border: none;
+    color: #ffffff;
+}
+
+.btn-next:hover {
+    background-color: #c05508;
+}
+
+.btn-icon {
+    width: 9px;
+    height: 9px;
+}
+
+.btn-next .btn-icon {
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .intro-form {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .profile-photo-card {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .bio-card {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .interests-card {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+}

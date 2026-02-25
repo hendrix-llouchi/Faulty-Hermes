@@ -19,7 +19,7 @@ export default function Login() {
                             <img src={imgContainer} alt="Logo" className="logo-icon" />
                         </div>
                         <h1 className="login-title">FAULTYHERMES</h1>
-                        <p className="login-subtitle">Gateway Access</p>
+                        <p className="login-subtitle"></p>
                     </div>
 
                     <form className="login-form" onSubmit={(e) => e.preventDefault()}>

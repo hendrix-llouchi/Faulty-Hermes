@@ -24,7 +24,7 @@ export default function SignUp() {
                     </p>
                 </div>
 
-                <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
+                <form className="signup-form" onSubmit={(e) => { e.preventDefault(); navigate('/introduction'); }}>
                     <div className="form-group">
                         <label>Email address</label>
                         <Input
