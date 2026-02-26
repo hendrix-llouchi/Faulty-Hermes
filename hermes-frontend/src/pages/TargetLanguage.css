@@ -257,3 +257,33 @@
     width: 10.25px;
     height: 7.82px;
 }
+
+/* Continue Action */
+.target-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-continue {
+    background-color: #ea6506;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-radius: 9999px;
+    padding: 16px 48px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-continue:hover:not(:disabled) {
+    background-color: #d15805;
+}
+
+.btn-continue:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+}

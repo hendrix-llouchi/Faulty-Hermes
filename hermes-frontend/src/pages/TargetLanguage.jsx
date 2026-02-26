@@ -152,6 +152,17 @@ export default function TargetLanguage() {
                     </div>
                     {renderLanguageGrid(focusLang, setFocusLang)}
                 </div>
+
+                {/* Continue Action */}
+                <div className="target-actions">
+                    <button
+                        className="btn-continue"
+                        onClick={() => navigate('/dashboard')}
+                        disabled={!fluentLang || !focusLang}
+                    >
+                        Continue
+                    </button>
+                </div>
             </div>
         </div>
     );
