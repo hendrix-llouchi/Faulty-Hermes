@@ -1,5 +1,6 @@
 import React from 'react';
 import './Dashboard.css';
+import FaultyHermesLogo from '/FaultyHermesLogo.png'
 
 // Local Assets
 import imgLogo from '../assets/dash-logo.svg';
@@ -46,7 +47,7 @@ export default function Dashboard() {
             <header className="dash-header">
                 <div className="dash-logo-block">
                     <div className="dash-logo-icon">
-                        <img src={imgLogo} alt="Logo" />
+                        <img src={FaultyHermesLogo} alt="Logo" />
                     </div>
                     <span className="dash-logo-text">FaultyHermes</span>
                 </div>

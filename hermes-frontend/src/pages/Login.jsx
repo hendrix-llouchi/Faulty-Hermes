@@ -73,12 +73,6 @@ export default function Login() {
                     </div>
                 </div>
 
-                <div className="login-footer">
-                    <p>© 2023 Faultyhermes Platform. All rights reserved.</p>
-                    <p>
-                        <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
-                    </p>
-                </div>
             </div>
         </div>
     );

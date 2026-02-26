@@ -17,7 +17,7 @@
     height: 72px;
     width: 100%;
     max-width: 100%;
-    padding: 0 32px;
+    padding: 0 220px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,13 +82,12 @@
 
 .dash-diamonds-badge {
     background-color: #ffffff;
-    border: 1px solid #eee;
+    border: 1px solid #e0e0e0;
     padding: 9px 17px;
     border-radius: 9999px;
     display: flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
 .dash-diamonds-badge span {
@@ -124,7 +123,7 @@
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(234, 101, 6, 0.1);
-    padding: 25px 32px;
+    padding: 25px 220px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -145,17 +144,16 @@
 }
 
 .dash-search-container {
-    width: 527px;
+    width: 700px;
 }
 
 .dash-search-input-wrapper {
     background-color: #ffffff;
-    border: 1px solid #eee;
+    border: 1px solid #e0e0e0;
     border-radius: 9999px;
     padding: 9px 17px;
     display: flex;
     align-items: center;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
 .dash-diamonds-badge img {
@@ -193,7 +191,7 @@
 .dash-main-content {
     width: 100%;
     max-width: 100%;
-    padding: 40px 32px;
+    padding: 40px 220px;
     box-sizing: border-box;
 }
 
@@ -261,7 +259,7 @@
 
 .icon-btn img {
     width: 24px;
-    height: 24px;
+    height: 19px;
     flex-shrink: 0;
 }
 
@@ -423,12 +421,13 @@
     margin: 0;
     font-size: 18px;
     font-weight: 700;
+    margin-left: 10px;
     color: #ffffff;
 }
 
 .league-header img {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
 }
 
@@ -467,8 +466,8 @@
 }
 
 .league-stats img {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
@@ -497,8 +496,8 @@
 }
 
 .streak-icon-wrapper img {
-    width: 40px;
-    height: 40px;
+    width: 26px;
+    height: 30px;
     flex-shrink: 0;
 }
 
@@ -788,8 +787,8 @@
 }
 
 .leaderboard-title img {
-    width: 60px;
-    height: 60px;
+    width: 25px;
+    height: 25px;
     flex-shrink: 0;
 }
 
