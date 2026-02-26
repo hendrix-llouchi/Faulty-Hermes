@@ -87,65 +87,45 @@ export default function Dashboard() {
             {/* Main Content Grid */}
             <div className="dash-main-content">
                 <div className="dash-grid-layout">
-                    {/* COLUMN 1 */}
-                    <div className="dash-col dash-col-1">
-                        {/* Learning Partners Widget */}
-                        <div className="dash-widget learning-partners-widget">
-                            <div className="widget-header border-b">
-                                <h3>Learning Partners</h3>
-                                <button className="icon-btn">
-                                    <img src={imgAddPartner} alt="Add" />
-                                </button>
-                            </div>
-                            <div className="widget-body p-sm">
-                                {learningPartners.map(partner => (
-                                    <div key={partner.id} className="partner-item">
-                                        <div className="partner-avatar-wrapper">
-                                            <img src={partner.avatar} alt={partner.name} className="partner-avatar" />
-                                            <div className="partner-status" style={{ backgroundColor: partner.statusColor }}></div>
-                                        </div>
-                                        <div className="partner-info">
-                                            <div className="partner-top-row">
-                                                <span className="partner-name">{partner.name}</span>
-                                                <span className="partner-time">{partner.ago}</span>
-                                            </div>
-                                            <div className="partner-bottom-row">
-                                                <span className="partner-native">Native: {partner.native}</span>
-                                                <span className="partner-dot"></span>
-                                                <span className="partner-learning">Learning: {partner.learning}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="widget-footer">
-                                <button className="text-btn">Find New Partners</button>
-                            </div>
-                        </div>
 
-                        {/* Weekly League Widget */}
-                        <div className="dash-widget weekly-league-widget">
-                            <div className="league-glow-top"></div>
-                            <div className="league-glow-bottom"></div>
-                            <div className="league-content">
-                                <div className="league-header">
-                                    <img src={imgTrophyWhite} alt="Trophy" />
-                                    <h3>Weekly League</h3>
-                                </div>
-                                <p>You're in the top 10! Keep learning to stay in the Diamond League.</p>
-                                <div className="league-stats">
-                                    <div className="league-user-info">
-                                        <span className="league-me">You</span>
-                                        <span className="league-xp">1250 XP</span>
+                    {/* --- ROW 1 --- */}
+
+                    {/* Column 1: Learning Partners */}
+                    <div className="dash-widget learning-partners-widget">
+                        <div className="widget-header border-b">
+                            <h3>Learning Partners</h3>
+                            <button className="icon-btn">
+                                <img src={imgAddPartner} alt="Add" />
+                            </button>
+                        </div>
+                        <div className="widget-body p-sm">
+                            {learningPartners.map(partner => (
+                                <div key={partner.id} className="partner-item">
+                                    <div className="partner-avatar-wrapper">
+                                        <img src={partner.avatar} alt={partner.name} className="partner-avatar" />
+                                        <div className="partner-status" style={{ backgroundColor: partner.statusColor }}></div>
                                     </div>
-                                    <img src={imgArrowUp} alt="Arrow Up" />
+                                    <div className="partner-info">
+                                        <div className="partner-top-row">
+                                            <span className="partner-name">{partner.name}</span>
+                                            <span className="partner-time">{partner.ago}</span>
+                                        </div>
+                                        <div className="partner-bottom-row">
+                                            <span className="partner-native">Native: {partner.native}</span>
+                                            <span className="partner-dot"></span>
+                                            <span className="partner-learning">Learning: {partner.learning}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
+                        </div>
+                        <div className="widget-footer">
+                            <button className="text-btn">Find New Partners</button>
                         </div>
                     </div>
 
-                    {/* COLUMN 2 */}
-                    <div className="dash-col dash-col-2">
+                    {/* Column 2: Dashboard Center Wrapper (Streak + Course) */}
+                    <div className="dash-col dash-col-center">
                         {/* Learning Streak Widget */}
                         <div className="dash-widget learning-streak-widget">
                             <div className="streak-header">
@@ -187,76 +167,95 @@ export default function Dashboard() {
                                 <button className="btn-secondary">Course Syllabus</button>
                             </div>
                         </div>
+                    </div>
 
-                        {/* Global Leaderboard Widget (Spans Col 2 & Col 3 logically via CSS OR placed in wrapper) */}
-                        <div className="dash-widget global-leaderboard-widget">
-                            <div className="widget-header border-b leaderboard-header">
-                                <div className="leaderboard-title">
-                                    <img src={imgTrophyDark} alt="Trophy" />
-                                    <h3>Global Leaderboard</h3>
-                                </div>
-                                <button className="view-all-btn">View All</button>
+                    {/* Column 3: Daily Quests */}
+                    <div className="dash-widget daily-quests-widget">
+                        <div className="widget-header daily-quests-header">
+                            <div className="quests-title">
+                                <img src={imgQuest} alt="Quests" />
+                                <h3>Daily Quests</h3>
                             </div>
-                            <div className="leaderboard-table">
-                                <div className="leaderboard-tr header-row">
-                                    <div className="td-rank">Rank</div>
-                                    <div className="td-learner">Learner</div>
-                                    <div className="td-streak">Streak</div>
-                                    <div className="td-exp">Experience</div>
-                                </div>
-                                {globalLeaderboard.map((item, idx) => (
-                                    <div key={idx} className={`leaderboard-tr ${item.isYou ? 'you-row' : ''}`}>
-                                        <div className="td-rank">
-                                            <div className={`rank-badge rank-${item.rank}`}>
-                                                {item.rank}
-                                            </div>
-                                        </div>
-                                        <div className="td-learner">
-                                            <img src={item.avatar} alt={item.name} className="learner-avatar" />
-                                            <span>{item.name}</span>
-                                        </div>
-                                        <div className="td-streak">
-                                            <span>🔥 {item.streak} days</span>
-                                        </div>
-                                        <div className="td-exp">
-                                            <div className="exp-badge">
-                                                {item.xp} XP
-                                            </div>
-                                        </div>
+                            <div className="quests-done-badge">2/5 DONE</div>
+                        </div>
+                        <div className="quests-list">
+                            {dailyQuests.map(quest => (
+                                <div key={quest.id} className="quest-item">
+                                    <div className="quest-info">
+                                        <span className="quest-text">{quest.text}</span>
+                                        <span className="quest-progress">{quest.current}/{quest.max}{quest.unit}</span>
                                     </div>
-                                ))}
+                                    <div className="quest-progress-track">
+                                        <div
+                                            className="quest-progress-fill"
+                                            style={{ width: `${(quest.current / quest.max) * 100}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <button className="claim-rewards-btn">Claim Rewards</button>
+                    </div>
+
+                    {/* --- ROW 2 --- */}
+
+                    {/* Column 1: Weekly League */}
+                    <div className="dash-widget weekly-league-widget">
+                        <div className="league-glow-top"></div>
+                        <div className="league-glow-bottom"></div>
+                        <div className="league-content">
+                            <div className="league-header">
+                                <img src={imgTrophyWhite} alt="Trophy" />
+                                <h3>Weekly League</h3>
+                            </div>
+                            <p>You're in the top 10! Keep learning to stay in the Diamond League.</p>
+                            <div className="league-stats">
+                                <div className="league-user-info">
+                                    <span className="league-me">You</span>
+                                    <span className="league-xp">1250 XP</span>
+                                </div>
+                                <img src={imgArrowUp} alt="Arrow Up" />
                             </div>
                         </div>
                     </div>
 
-                    {/* COLUMN 3 */}
-                    <div className="dash-col dash-col-3">
-                        {/* Daily Quests Widget */}
-                        <div className="dash-widget daily-quests-widget">
-                            <div className="widget-header daily-quests-header">
-                                <div className="quests-title">
-                                    <img src={imgQuest} alt="Quests" />
-                                    <h3>Daily Quests</h3>
-                                </div>
-                                <div className="quests-done-badge">2/5 DONE</div>
+                    {/* Column 2 & 3: Global Leaderboard */}
+                    <div className="dash-widget global-leaderboard-widget">
+                        <div className="widget-header border-b leaderboard-header">
+                            <div className="leaderboard-title">
+                                <img src={imgTrophyDark} alt="Trophy" />
+                                <h3>Global Leaderboard</h3>
                             </div>
-                            <div className="quests-list">
-                                {dailyQuests.map(quest => (
-                                    <div key={quest.id} className="quest-item">
-                                        <div className="quest-info">
-                                            <span className="quest-text">{quest.text}</span>
-                                            <span className="quest-progress">{quest.current}/{quest.max}{quest.unit}</span>
-                                        </div>
-                                        <div className="quest-progress-track">
-                                            <div
-                                                className="quest-progress-fill"
-                                                style={{ width: `${(quest.current / quest.max) * 100}%` }}
-                                            ></div>
+                            <button className="view-all-btn">View All</button>
+                        </div>
+                        <div className="leaderboard-table">
+                            <div className="leaderboard-tr header-row">
+                                <div className="td-rank">Rank</div>
+                                <div className="td-learner">Learner</div>
+                                <div className="td-streak">Streak</div>
+                                <div className="td-exp">Experience</div>
+                            </div>
+                            {globalLeaderboard.map((item, idx) => (
+                                <div key={idx} className={`leaderboard-tr ${item.isYou ? 'you-row' : ''}`}>
+                                    <div className="td-rank">
+                                        <div className={`rank-badge rank-${item.rank}`}>
+                                            {item.rank}
                                         </div>
                                     </div>
-                                ))}
-                            </div>
-                            <button className="claim-rewards-btn">Claim Rewards</button>
+                                    <div className="td-learner">
+                                        <img src={item.avatar} alt={item.name} className="learner-avatar" />
+                                        <span>{item.name}</span>
+                                    </div>
+                                    <div className="td-streak">
+                                        <span>🔥 {item.streak} days</span>
+                                    </div>
+                                    <div className="td-exp">
+                                        <div className="exp-badge">
+                                            {item.xp} XP
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
 

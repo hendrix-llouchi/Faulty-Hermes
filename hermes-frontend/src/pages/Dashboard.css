@@ -8,10 +8,7 @@
     align-items: center;
 }
 
-img {
-    max-width: 100%;
-    object-fit: contain;
-}
+
 
 /* Header */
 .dash-header {
@@ -19,8 +16,8 @@ img {
     border-bottom: 1px solid rgba(230, 107, 17, 0.1);
     height: 72px;
     width: 100%;
-    max-width: 1280px;
-    padding: 0 80px;
+    max-width: 100%;
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,8 +41,9 @@ img {
 }
 
 .dash-logo-icon img {
-    width: 14px;
-    height: 13px;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .dash-logo-text {
@@ -121,12 +119,12 @@ img {
 /* Welcome Banner */
 .dash-welcome-banner {
     width: 100%;
-    max-width: 1120px;
+    max-width: 100%;
     margin-top: 18px;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(234, 101, 6, 0.1);
-    padding: 25px 84px;
+    padding: 25px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -163,17 +161,20 @@ img {
 .dash-diamonds-badge img {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
 }
 
 .dash-bell-icon img {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
 }
 
 .dash-search-input-wrapper img {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     margin-right: 8px;
+    flex-shrink: 0;
 }
 
 .dash-search-input-wrapper input {
@@ -191,8 +192,8 @@ img {
 /* Main Content Layout */
 .dash-main-content {
     width: 100%;
-    max-width: 1280px;
-    padding: 40px 53px;
+    max-width: 100%;
+    padding: 40px 32px;
     box-sizing: border-box;
 }
 
@@ -261,15 +262,19 @@ img {
 .icon-btn img {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
 }
 
 /* Learning Partners Widget */
 .learning-partners-widget {
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .widget-body.p-sm {
     padding: 8px;
+    flex: 1;
 }
 
 .partner-item {
@@ -376,6 +381,7 @@ img {
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
     position: relative;
     border: none;
+    align-self: start;
 }
 
 .league-glow-top {
@@ -421,8 +427,9 @@ img {
 }
 
 .league-header img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
 }
 
 .league-content p {
@@ -462,12 +469,14 @@ img {
 .league-stats img {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
 }
 
 /* Learning Streak Widget */
 .learning-streak-widget {
     padding: 25px;
     border: 1px solid rgba(230, 107, 17, 0.05);
+    height: fit-content;
 }
 
 .streak-header {
@@ -488,8 +497,9 @@ img {
 }
 
 .streak-icon-wrapper img {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
 }
 
 .streak-title-wrapper {
@@ -556,8 +566,9 @@ img {
 }
 
 .day-circle img {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 
 /* Current Course Bento */
@@ -567,6 +578,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    height: fit-content;
 }
 
 .course-progress-bar-container {
@@ -655,6 +667,9 @@ img {
 .daily-quests-widget {
     padding: 25px;
     gap: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .daily-quests-header {
@@ -674,6 +689,7 @@ img {
 .quests-title img {
     width: 24px;
     height: 24px;
+    flex-shrink: 0;
 }
 
 .quests-done-badge {
@@ -772,8 +788,9 @@ img {
 }
 
 .leaderboard-title img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
 }
 
 .view-all-btn {
