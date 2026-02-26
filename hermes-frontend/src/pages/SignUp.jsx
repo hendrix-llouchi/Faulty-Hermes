@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import Input from '../components/Input';
+import { useEffect } from 'react';
 
 import imgLogo from '../assets/logo-Icon.svg';
 import imgEmail from '../assets/email-Icon.svg';
@@ -10,6 +11,9 @@ import imgLock from '../assets/password-Icon.svg';
 import imgGoogle from '../assets/devicon_google.svg';
 
 export default function SignUp() {
+    useEffect(() => {
+        document.title = 'FaultyHermes - SignUp';
+    }, []);
     const navigate = useNavigate();
     return (
         <div className="signup-container">

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 import FaultyHermesLogo from '/FaultyHermesLogo.png'
+import { useEffect } from 'react';
 
 // Local Assets
 import imgLogo from '../assets/dash-logo.svg';
@@ -18,7 +19,12 @@ import imgQuest from '../assets/dash-quest.svg';
 import avatar1 from '../assets/avatar-1.png';
 import avatar2 from '../assets/avatar-2.png';
 
+
 export default function Dashboard() {
+    useEffect(() => {
+        document.title = 'FaultyHermes - Home';
+    }, []);
+
     // Mock Data
     const learningPartners = [
         { id: 1, name: 'Sarah Chen', ago: '2m ago', native: 'Chinese', learning: 'French', statusColor: '#22c55e', avatar: avatar1 },

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import Input from '../components/Input';
+import { useEffect } from 'react';
 
 import imgContainer from '../assets/logo-Icon.svg';
 import imgUser from '../assets/profile-icon.svg';
@@ -9,6 +10,9 @@ import imgLock from '../assets/password-Icon.svg';
 import imgDeviconGoogle from '../assets/devicon_google.svg';
 
 export default function Login() {
+    useEffect(() => {
+        document.title = 'FaultyHermes - Login';
+    }, []);
     const navigate = useNavigate();
     return (
         <div className="login-container">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Introduction.css';
+import { useEffect } from 'react';
 
 // Local asset imports
 import imgProfilePlaceholder from '../assets/profile-placeholder.png';
@@ -19,6 +20,10 @@ import imgBack from '../assets/back-icon.svg';
 import imgNext from '../assets/next-icon.svg';
 
 export default function Introduction() {
+    useEffect(() => {
+        document.title = 'FaultyHermes - Introduction';
+    }, []);
+
     const navigate = useNavigate();
     const [bio, setBio] = useState('');
     const [selectedInterests, setSelectedInterests] = useState([]);

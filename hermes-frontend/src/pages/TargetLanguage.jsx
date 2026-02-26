@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TargetLanguage.css';
+import { useEffect } from 'react'
 
 // SVG assets mapped directly to the names from Figma output
 import imgMore from '../assets/flag_530c05e2ac27333f980a2f77bbecd28da11275a6.svg';
@@ -92,6 +93,11 @@ const languages = [
 ];
 
 export default function TargetLanguage() {
+    useEffect(() => {
+        document.title = 'FaultyHermes - Target Language';
+    }, []);
+
+
     const navigate = useNavigate();
     const [fluentLang, setFluentLang] = useState(null);
     const [focusLang, setFocusLang] = useState(null);
