@@ -1,0 +1,259 @@
+.target-lang-container {
+    background-color: #f8f7f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 65px 30px;
+    font-family: 'Inter', sans-serif;
+}
+
+.target-lang-main {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+}
+
+.target-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.target-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.target-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #332a24;
+    margin: 0;
+    letter-spacing: -0.9px;
+    line-height: 40px;
+}
+
+.target-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: #756c66;
+    margin: 0;
+    line-height: 28px;
+    max-width: 1024px;
+}
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .language-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .language-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.language-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 21px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.language-card:hover {
+    background-color: #fafafa;
+}
+
+.language-card.selected {
+    background-color: rgba(218, 98, 11, 0.05);
+    border-color: #da620b;
+    box-shadow: 0px 4px 20px 0px rgba(218, 98, 11, 0.15);
+}
+
+.more-languages-card {
+    background-color: #ffffff;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.more-languages-card:hover {
+    background-color: #f9fafb;
+}
+
+.more-languages-card span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #756c66;
+}
+
+.more-icon-wrapper {
+    background-color: #f3f4f6;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.flag-container {
+    background-color: transparent;
+    border: 1px solid #f3f4f6;
+    border-radius: 9999px;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.flag-layer {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    pointer-events: none;
+}
+
+/* Specific properties for Korean flag layers inside container matching layout */
+.kr-center {
+    width: 32px;
+    height: 32px;
+    top: 18%;
+    left: 16%;
+}
+
+.kr-bot {
+    width: 24px;
+    height: 32px;
+    bottom: 30%;
+    right: 26%;
+}
+
+.kr-top {
+    width: 7px;
+    height: 16px;
+    top: 43%;
+    left: 45%;
+}
+
+.kr-p1,
+.kr-p2,
+.kr-p3,
+.kr-p4,
+.kr-p5,
+.kr-p6 {
+    width: 9px;
+    height: 2px;
+}
+
+.kr-p1 {
+    top: 20%;
+    left: 20%;
+    transform: rotate(35deg);
+}
+
+.kr-p2 {
+    top: 25%;
+    left: 25%;
+    transform: rotate(35deg);
+}
+
+.kr-p3 {
+    top: 30%;
+    left: 30%;
+    transform: rotate(35deg);
+}
+
+.kr-p4 {
+    bottom: 20%;
+    right: 20%;
+    transform: rotate(35deg);
+}
+
+.kr-p5 {
+    bottom: 25%;
+    right: 25%;
+    transform: rotate(35deg);
+}
+
+.kr-p6 {
+    bottom: 30%;
+    right: 30%;
+    transform: rotate(35deg);
+}
+
+.language-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.language-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #332a24;
+    line-height: 28px;
+}
+
+.language-native {
+    font-size: 12px;
+    font-weight: 400;
+    color: #756c66;
+    line-height: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.checkmark-badge {
+    position: absolute;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    background-color: #da620b;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark-badge img {
+    width: 10.25px;
+    height: 7.82px;
+}

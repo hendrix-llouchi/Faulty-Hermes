@@ -124,7 +124,7 @@ export default function Introduction() {
                         <img src={imgBack} alt="Back" className="btn-icon" />
                         <span>BACK</span>
                     </button>
-                    <button type="button" className="btn-next" onClick={() => navigate('/')}>
+                    <button type="button" className="btn-next" onClick={() => navigate('/target-language')}>
                         <span>NEXT STEP</span>
                         <img src={imgNext} alt="Next" className="btn-icon" />
                     </button>
