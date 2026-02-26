@@ -3,6 +3,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Introduction from './pages/Introduction'
 import TargetLanguage from './pages/TargetLanguage'
+import Dashboard from './pages/Dashboard'
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/introduction" element={<Introduction />} />
           <Route path="/target-language" element={<TargetLanguage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
