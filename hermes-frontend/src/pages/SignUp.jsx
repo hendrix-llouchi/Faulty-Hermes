@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import Input from '../components/Input';
 import { useEffect } from 'react';
+import FaultyHermesLogo from '/FaultyHermesLogo.png'
 
 import imgLogo from '../assets/logo-Icon.svg';
 import imgEmail from '../assets/email-Icon.svg';
@@ -15,12 +16,24 @@ export default function SignUp() {
         document.title = 'FaultyHermes - SignUp';
     }, []);
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
+
+    const isDisabled =
+        email.trim() === '' ||
+        username.trim() === '' ||
+        password === '' ||
+        confirmPassword === '' ||
+        !agreedToTerms;
     return (
         <div className="signup-container">
             <div className="signup-card">
                 <div className="signup-header">
                     <div className="signup-logo-container">
-                        <img src={imgLogo} alt="Logo" className="signup-logo-icon" />
+                        <img src={FaultyHermesLogo} alt="Logo" className="signup-logo-icon" />
                     </div>
                     <h1 className="signup-title">Join FAULTYHERMES</h1>
                     <p className="signup-subtitle">
@@ -36,6 +49,8 @@ export default function SignUp() {
                             placeholder="you@example.com"
                             type="email"
                             className="variant-signup"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
 
@@ -46,6 +61,8 @@ export default function SignUp() {
                             placeholder="Choose a handle"
                             type="text"
                             className="variant-signup"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
 
@@ -56,6 +73,8 @@ export default function SignUp() {
                             placeholder="••••••••"
                             type="password"
                             className="variant-signup"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
@@ -66,17 +85,25 @@ export default function SignUp() {
                             placeholder="••••••••"
                             type="password"
                             className="variant-signup"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                     </div>
 
                     <div className="terms-checkbox">
-                        <input type="checkbox" className="checkbox-input" id="terms" />
+                        <input
+                            type="checkbox"
+                            className="checkbox-input"
+                            id="terms"
+                            checked={agreedToTerms}
+                            onChange={(e) => setAgreedToTerms(e.target.checked)}
+                        />
                         <label htmlFor="terms" className="terms-label">
                             I agree to the <a href="#" className="terms-link">Terms</a> and <a href="#" className="terms-link">Privacy Policy</a>
                         </label>
                     </div>
 
-                    <button type="submit" className="btn-signup-primary">SIGN UP</button>
+                    <button type="submit" className="btn-signup-primary" disabled={isDisabled}>SIGN UP</button>
                 </form>
 
                 <div className="signup-social-divider">

@@ -302,6 +302,85 @@
     font-size: 16px;
 }
 
+/* Custom interest tags */
+.custom-interest-btn {
+    position: relative;
+    padding-right: 10px;
+}
+
+.custom-interest-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, 0.12);
+    color: inherit;
+    line-height: 1;
+    transition: background-color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.custom-interest-btn.selected .custom-interest-remove {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.custom-interest-remove:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Inline add-interest input */
+.add-interest-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px 4px 14px;
+    border: 2px solid #da620b;
+    border-radius: 9999px;
+    background-color: #fff8f4;
+    height: 44px;
+    box-sizing: border-box;
+}
+
+.add-interest-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1f2937;
+    width: 110px;
+}
+
+.add-interest-input::placeholder {
+    color: #d1a07a;
+}
+
+.add-interest-confirm-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: none;
+    background-color: #da620b;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+}
+
+.add-interest-confirm-btn:hover {
+    background-color: #c05508;
+}
+
 /* Actions Section */
 .intro-actions {
     display: flex;
