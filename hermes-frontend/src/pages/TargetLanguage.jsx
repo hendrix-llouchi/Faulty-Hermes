@@ -99,19 +99,37 @@ export default function TargetLanguage() {
 
 
     const navigate = useNavigate();
-    const [fluentLang, setFluentLang] = useState(null);
+    // Native language: multi-select (array of ids)
+    const [fluentLangs, setFluentLangs] = useState([]);
+    // Target language: single-select (one id or null)
     const [focusLang, setFocusLang] = useState(null);
 
-    const renderLanguageGrid = (selectedLang, setSelectedLang) => {
+    const renderLanguageGrid = (selectedLang, setSelectedLang, multiSelect = false) => {
         return (
             <div className="language-grid">
                 {languages.map(lang => {
-                    const isSelected = selectedLang === lang.id;
+                    const isSelected = multiSelect
+                        ? selectedLang.includes(lang.id)
+                        : selectedLang === lang.id;
+
+                    const handleClick = () => {
+                        if (multiSelect) {
+                            // toggle in array
+                            setSelectedLang(prev =>
+                                prev.includes(lang.id)
+                                    ? prev.filter(id => id !== lang.id)
+                                    : [...prev, lang.id]
+                            );
+                        } else {
+                            setSelectedLang(lang.id);
+                        }
+                    };
+
                     return (
                         <div
                             key={lang.id}
                             className={`language-card ${isSelected ? 'selected' : ''}`}
-                            onClick={() => setSelectedLang(lang.id)}
+                            onClick={handleClick}
                         >
                             <div className="flag-container">
                                 {lang.flagRender()}
@@ -141,22 +159,22 @@ export default function TargetLanguage() {
     return (
         <div className="target-lang-container">
             <div className="target-lang-main">
-                {/* Fluent In Section */}
+                {/* Native Language Section — multi-select */}
                 <div className="target-section">
                     <div className="target-header">
-                        <h1 className="target-title">Choose your target language</h1>
+                        <h1 className="target-title">Choose your native language</h1>
                         <p className="target-subtitle">Select the language you are familiar and fluent in</p>
                     </div>
-                    {renderLanguageGrid(fluentLang, setFluentLang)}
+                    {renderLanguageGrid(fluentLangs, setFluentLangs, true)}
                 </div>
 
-                {/* Focus On Section */}
+                {/* Target Language Section — single-select */}
                 <div className="target-section" style={{ marginTop: '20px' }}>
                     <div className="target-header">
                         <h1 className="target-title">Choose your target language</h1>
                         <p className="target-subtitle">Select the language you want to focus on first. You can always add more languages to your bento later.</p>
                     </div>
-                    {renderLanguageGrid(focusLang, setFocusLang)}
+                    {renderLanguageGrid(focusLang, setFocusLang, false)}
                 </div>
 
                 {/* Continue Action */}
@@ -164,7 +182,7 @@ export default function TargetLanguage() {
                     <button
                         className="btn-continue"
                         onClick={() => navigate('/dashboard')}
-                        disabled={!fluentLang || !focusLang}
+                        disabled={fluentLangs.length === 0 || !focusLang}
                     >
                         Continue
                     </button>
