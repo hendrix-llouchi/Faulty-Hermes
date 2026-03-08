@@ -32,8 +32,17 @@ import imgItRight from '../assets/flag_82498640b2c026652c1026dad02d917c14da2db9.
 
 // Korean pieces
 import imgKr from '../assets/korean-flag.png';
+import imgEn from '../assets/english-flag.png';
 
 const languages = [
+    {
+        id: 'en', name: 'English', native: 'English',
+        flagRender: () => (
+            <>
+                <img src={imgEn} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </>
+        )
+    },
     {
         id: 'es', name: 'Spanish', native: 'Español',
         flagRender: () => (
