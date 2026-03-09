@@ -4,6 +4,7 @@ import SignUp from './pages/SignUp'
 import Introduction from './pages/Introduction'
 import TargetLanguage from './pages/TargetLanguage'
 import Dashboard from './pages/Dashboard'
+import Chat from './pages/Chat'
 import './App.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/introduction" element={<Introduction />} />
           <Route path="/target-language" element={<TargetLanguage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/messages" element={<Chat />} />
         </Routes>
       </div>
     </Router>

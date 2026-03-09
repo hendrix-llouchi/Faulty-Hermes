@@ -106,10 +106,36 @@ export default function TargetLanguage() {
         document.title = 'FaultyHermes - Target Language';
     }, []);
 
-
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
     const navigate = useNavigate();
     const [fluentLang, setFluentLang] = useState(null);
     const [focusLang, setFocusLang] = useState(null);
+    const [isSaving, setIsSaving] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleContinue = async () => {
+        if (!fluentLang || !focusLang) return;
+        setIsSaving(true);
+        setError('');
+
+        const username = localStorage.getItem('hermes_username');
+        if (username) {
+            try {
+                await fetch(`${API_BASE_URL}/users/profile/`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, target_lang: focusLang }),
+                });
+                // Store so other parts of the app know the user's language
+                localStorage.setItem('hermes_target_lang', focusLang);
+            } catch (e) {
+                console.error('Could not save target language:', e);
+                // Non-blocking — continue anyway
+            }
+        }
+        setIsSaving(false);
+        navigate('/dashboard');
+    };
 
     const renderLanguageGrid = (selectedLang, setSelectedLang) => {
         return (
@@ -169,13 +195,14 @@ export default function TargetLanguage() {
                 </div>
 
                 {/* Continue Action */}
+                {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
                 <div className="target-actions">
                     <button
                         className="btn-continue"
-                        onClick={() => navigate('/dashboard')}
-                        disabled={!fluentLang || !focusLang}
+                        onClick={handleContinue}
+                        disabled={!fluentLang || !focusLang || isSaving}
                     >
-                        Continue
+                        {isSaving ? 'Saving...' : 'Continue'}
                     </button>
                 </div>
             </div>

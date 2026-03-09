@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dashboard.css';
 import FaultyHermesLogo from '/FaultyHermesLogo.png'
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // Local Assets
 import imgLogo from '../assets/dash-logo.svg';
@@ -21,9 +22,33 @@ import avatar2 from '../assets/avatar-2.png';
 
 
 export default function Dashboard() {
+    const [username, setUsername] = useState('');
+    const [showPicker, setShowPicker] = useState(false);
+    const [availableUsers, setAvailableUsers] = useState([]);
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
+
     useEffect(() => {
         document.title = 'FaultyHermes - Home';
+        const savedUsername = localStorage.getItem('hermes_username');
+        if (savedUsername) {
+            setUsername(savedUsername);
+        } else {
+            // No username in localStorage — fetch real users and show picker
+            fetch(`${API_BASE_URL}/users/`)
+                .then(r => r.json())
+                .then(data => {
+                    setAvailableUsers(data);
+                    setShowPicker(true);
+                })
+                .catch(() => setUsername('there')); // graceful fallback
+        }
     }, []);
+
+    const handlePickUser = (name) => {
+        localStorage.setItem('hermes_username', name);
+        setUsername(name);
+        setShowPicker(false);
+    };
 
     // Mock Data
     const learningPartners = [
@@ -49,6 +74,45 @@ export default function Dashboard() {
 
     return (
         <div className="dash-container">
+            {/* User Picker Overlay — shown only if no username in localStorage */}
+            {showPicker && (
+                <div style={{
+                    position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 1000, backdropFilter: 'blur(8px)'
+                }}>
+                    <div style={{
+                        background: '#fff', borderRadius: '20px', padding: '40px',
+                        minWidth: '380px', textAlign: 'center',
+                        boxShadow: '0 25px 60px rgba(0,0,0,0.2)'
+                    }}>
+                        <h2 style={{ margin: '0 0 8px', fontSize: '22px', fontWeight: 800, color: '#111827' }}>
+                            Who are you? 👋
+                        </h2>
+                        <p style={{ color: '#6b7280', fontSize: '14px', marginBottom: '24px' }}>
+                            Select your account to personalise the experience
+                        </p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            {availableUsers.map(user => (
+                                <button
+                                    key={user.username}
+                                    onClick={() => handlePickUser(user.username)}
+                                    style={{
+                                        padding: '14px 20px', borderRadius: '12px', border: '2px solid #f3f4f6',
+                                        background: '#f9fafb', cursor: 'pointer', fontSize: '15px',
+                                        fontWeight: 700, color: '#111827', transition: 'all 0.2s',
+                                        textAlign: 'left'
+                                    }}
+                                    onMouseEnter={e => { e.target.style.borderColor = '#ea6506'; e.target.style.background = '#fff7f0'; }}
+                                    onMouseLeave={e => { e.target.style.borderColor = '#f3f4f6'; e.target.style.background = '#f9fafb'; }}
+                                >
+                                    {user.username}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
             {/* Header Area */}
             <header className="dash-header">
                 <div className="dash-logo-block">
@@ -59,10 +123,10 @@ export default function Dashboard() {
                 </div>
                 <div className="dash-nav-container">
                     <nav className="dash-nav">
-                        <a href="#dashboard" className="dash-nav-link active">Dashboard</a>
-                        <a href="#find-partner" className="dash-nav-link">Find Partner</a>
-                        <a href="#lessons" className="dash-nav-link">Lessons</a>
-                        <a href="#messages" className="dash-nav-link">Messages</a>
+                        <Link to="/dashboard" className="dash-nav-link active">Dashboard</Link>
+                        <Link to="#find-partner" className="dash-nav-link">Find Partner</Link>
+                        <Link to="#lessons" className="dash-nav-link">Lessons</Link>
+                        <Link to="/messages" className="dash-nav-link">Messages</Link>
                     </nav>
                     <div className="dash-diamonds-badge">
                         <img src={imgDiamond} alt="Diamonds" />
@@ -80,7 +144,7 @@ export default function Dashboard() {
             {/* Welcome Banner */}
             <div className="dash-welcome-banner">
                 <div className="welcome-text-block">
-                    <h1>Welcome back, Alex!</h1>
+                    <h1>Welcome back, {username}!</h1>
                     <p>Ready to continue your French journey?</p>
                 </div>
                 <div className="dash-search-container">
